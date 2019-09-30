@@ -28,7 +28,7 @@ data class Task(
 )
 
 /** Store for tasks. */
-val store = MongoDbStore(Task::class, Task::code, "")
+//val store = MongoDbStore(Task::class, Task::code, "")
 
 fun main(vararg args: String) {
     val server = Server(JettyServletAdapter()) {
