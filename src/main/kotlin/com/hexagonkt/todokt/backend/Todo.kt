@@ -8,7 +8,7 @@ import com.hexagonkt.http.server.jetty.JettyServletAdapter
 import com.hexagonkt.serialization.Json
 
 fun main() {
-    var task: Task? = null
+    val taskRepository : TasksRepository = TasksInMemoryRepository()
     val server = Server(JettyServletAdapter()) {
         before {
             allowCors()
@@ -17,18 +17,15 @@ fun main() {
         options { }
 
         get {
-            if (task != null) {
-                ok(task!!, Json)
-            } else {
-                ok(arrayOf<String>(), Json)
-            }
+            ok(taskRepository.getAllTasks(), Json)
         }
         post {
-            task = Json.parse(request.body.toStream(), Task::class)
-            ok(task!!, Json)
+            val task = Json.parse(request.body.toStream(), Task::class)
+            taskRepository.addTask(task)
+            ok(task, Json)
         }
         delete {
-            task = null
+            taskRepository.removeAllTasks()
             ok()
         }
     }
