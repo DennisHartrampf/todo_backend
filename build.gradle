@@ -14,8 +14,7 @@ applicationDefaultJvmArgs = [ "-Xms64M", "-Xmx2G", "-XX:+UseNUMA", "-XX:+UsePara
 
 ext.cucumberVersion = "4.3.0"
 
-task stage(dependsOn: ['build', 'clean'])
-build.mustRunAfter clean
+task stage(dependsOn: ['installDist'])
 
 dependencies {
     compile("com.hexagonkt:hexagon_web:$hexagonVersion")
