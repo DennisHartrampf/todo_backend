@@ -19,7 +19,7 @@ themeColor : "#135AA1"
 twitterAccount : "@hexagon_kt"
 
 # HTTP Server
-bindPort : 2010
+bindPort : $PORT
 bindAddress : 0.0.0.0
 
 # Storage
