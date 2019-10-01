@@ -19,6 +19,14 @@ fun main() {
         get {
             ok(taskRepository.getAllTasks(), Json)
         }
+        get("/task/{id}") {
+            val task = taskRepository.getTaskById(pathParameters["id"].toInt())
+            if (task != null) {
+                ok(task, Json)
+            } else {
+                send(404, "Task not found")
+            }
+        }
         post {
             val task = Json.parse(request.body.toStream(), Task::class)
             taskRepository.addTask(task)
