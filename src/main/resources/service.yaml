@@ -12,7 +12,7 @@ cdn : http://cdnjs.cloudflare.com/ajax/libs
 bootstrapVersion : "3.3.7"
 
 authorName : Juanjo Aguililla
-httpKeywords : Hexagon, Kotlin, Example, MongoDB, JVM, Web
+httpKeywords : Hexagon, Kotlin, Example, JVM, Web
 httpGenerator : Hexagon
 themeColor : "#135AA1"
 
@@ -21,6 +21,3 @@ twitterAccount : "@hexagon_kt"
 # HTTP Server
 bindPort : $PORT
 bindAddress : 0.0.0.0
-
-# Storage
-database : todo
