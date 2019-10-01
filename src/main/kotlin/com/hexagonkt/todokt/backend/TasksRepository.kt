@@ -5,4 +5,5 @@ interface TasksRepository {
     fun addTask(task: Task)
     fun removeAllTasks()
     fun getTaskById(id: Int): Task?
+    fun removeTaskById(id: Int): Task?
 }

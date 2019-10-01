@@ -23,4 +23,8 @@ class TasksInMemoryRepository : TasksRepository {
     override fun getTaskById(id: Int): Task? {
         return tasks[id]
     }
+
+    override fun removeTaskById(id: Int): Task? {
+        return tasks.remove(id)
+    }
 }

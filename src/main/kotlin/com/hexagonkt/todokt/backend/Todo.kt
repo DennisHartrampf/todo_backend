@@ -32,6 +32,14 @@ fun main() {
             taskRepository.addTask(task)
             ok(task, Json)
         }
+        delete("/task/{id}") {
+            val task = taskRepository.removeTaskById(pathParameters["id"].toInt())
+            if (task != null) {
+                ok("Task deleted")
+            } else {
+                send(404, "Task not found")
+            }
+        }
         delete {
             taskRepository.removeAllTasks()
             ok()
@@ -43,5 +51,5 @@ fun main() {
 
 private fun Call.allowCors() {
     response.setHeader("Access-Control-Allow-Origin", "*")
-    response.setHeader("Access-Control-Allow-Methods", "${Method.GET}, ${Method.OPTIONS}, ${Method.POST}, ${Method.DELETE}, ${Method.PATCH}")
+    response.setHeader("Access-Control-Allow-Methods", "${Method.GET}, ${Method.OPTIONS}, ${Method.POST}, ${Method.DELETE}, ${Method.PATCH}, ${Method.HEAD}, ${Method.PUT}")
 }
