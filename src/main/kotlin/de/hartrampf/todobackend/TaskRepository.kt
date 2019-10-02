@@ -1,6 +1,6 @@
 package de.hartrampf.todobackend
 
-interface TasksRepository {
+interface TaskRepository {
     fun getAllTasks(): List<Task>
     fun addTask(task: Task)
     fun removeAllTasks()

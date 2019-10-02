@@ -2,7 +2,7 @@ package de.hartrampf.todobackend
 
 import java.util.concurrent.atomic.AtomicInteger
 
-class TasksInMemoryRepository : TasksRepository {
+class InMemoryTaskRepository : TaskRepository {
     private val nextId = AtomicInteger()
     private val tasks: MutableMap<Int, Task> = mutableMapOf()
 
