@@ -19,5 +19,5 @@ themeColor : "#135AA1"
 twitterAccount : "@hexagon_kt"
 
 # HTTP Server
-bindPort : $PORT
+bindPort : 2010
 bindAddress : 0.0.0.0
