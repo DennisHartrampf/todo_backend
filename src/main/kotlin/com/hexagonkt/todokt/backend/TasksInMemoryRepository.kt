@@ -12,7 +12,7 @@ class TasksInMemoryRepository : TasksRepository {
 
     override fun addTask(task: Task) {
         val id = nextId.incrementAndGet()
-        task.url = "task/$id"
+        task.id = id
         tasks[id] = task
     }
 
