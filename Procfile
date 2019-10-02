@@ -1,1 +1,1 @@
-web: unzip build/distributions/todo_backend-0.1.0.zip && ./todo_backend-0.1.0/bin/todo_backend
+web: unzip build/distributions/todo_backend-0.1.0.zip && export SERVICE_bindPort=$PORT && ./todo_backend-0.1.0/bin/todo_backend
