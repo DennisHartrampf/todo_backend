@@ -1,14 +1,13 @@
 package com.hexagonkt.todokt.backend
 
 import com.hexagonkt.helpers.toStream
-import com.hexagonkt.http.Method
 import com.hexagonkt.http.server.Call
 import com.hexagonkt.http.server.Server
 import com.hexagonkt.http.server.jetty.JettyServletAdapter
 import com.hexagonkt.serialization.Json
 
 fun main() {
-    val taskRepository : TasksRepository = TasksInMemoryRepository()
+    val taskRepository: TasksRepository = TasksInMemoryRepository()
     val server = Server(JettyServletAdapter()) {
         before {
             allowCors()
@@ -51,5 +50,7 @@ fun main() {
 
 private fun Call.allowCors() {
     response.setHeader("Access-Control-Allow-Origin", "*")
-    response.setHeader("Access-Control-Allow-Methods", "${Method.GET}, ${Method.OPTIONS}, ${Method.POST}, ${Method.DELETE}, ${Method.PATCH}, ${Method.HEAD}, ${Method.PUT}")
+    response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE, PATCH")
+    response.setHeader("Access-Control-Max-Age", "3600")
+    response.setHeader("Access-Control-Allow-Headers", "x-requested-with, origin, content-type, accept")
 }
