@@ -1,4 +1,4 @@
-package com.hexagonkt.todokt.backend
+package de.hartrampf.todobackend
 
 data class Task(
         var title: String = "",

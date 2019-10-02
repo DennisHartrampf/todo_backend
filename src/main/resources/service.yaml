@@ -1,22 +1,14 @@
-
-# Service
-serviceName : Todo
-serviceUrl : http://hexagonkt.com
-serviceDescription : The atoms of your platform
+serviceName : Todo-Backend
+serviceUrl : https://dennis-hartrampf-todo-backend.herokuapp.com/
+serviceDescription : Implementation of the Todo-Backend (http://www.todobackend.com/) using Hexagon (https://hexagonkt.com/)
 serviceLongDescription : >
-  Hexagon is a microservices library written in Kotlin. Its purpose is to ease the building of
-  services (Web applications, APIs or queue consumers) that run inside a cloud platform
+  This is a sample implementation of the [Todo-Backend](http://www.todobackend.com/) using 
+  [Hexagon](https://hexagonkt.com/) and Kotlin.
+  The application is deployed under https://dennis-hartrampf-todo-backend.herokuapp.com/ using [Travis CI](https://travis-ci.org/).
 
-# HTML
-cdn : http://cdnjs.cloudflare.com/ajax/libs
-bootstrapVersion : "3.3.7"
 
-authorName : Juanjo Aguililla
-httpKeywords : Hexagon, Kotlin, Example, JVM, Web
-httpGenerator : Hexagon
-themeColor : "#135AA1"
-
-twitterAccount : "@hexagon_kt"
+authorName : Dennis Hartrampf
+httpKeywords : Hexagon, Kotlin, Example, JVM, Web, TravisCI, Heroku
 
 # HTTP Server
 bindPort : 2010

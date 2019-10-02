@@ -1,12 +1,10 @@
-
 rootProject.name = "todo_backend"
 
 gradle.rootProject {
 
     allprojects {
-        version = "0.1.0"
-        group = "com.hexagonkt"
-        description = "Task Manager"
+        version = "1.0.0"
+        group = "de.hartrampf"
+        description = "Todo-Backend as specified on http://www.todobackend.com/"
     }
 }
-

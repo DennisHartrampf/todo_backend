@@ -22,5 +22,5 @@
   </root>
 
   <logger name="com.hexagonkt" level="trace" />
-  <logger name="com.hexagonkt.todokt" level="trace" />
+  <logger name="de.hartrampf.todobackend" level="trace" />
 </configuration>

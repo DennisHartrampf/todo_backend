@@ -1,4 +1,4 @@
-package com.hexagonkt.todokt.backend
+package de.hartrampf.todobackend
 
 import com.hexagonkt.helpers.toStream
 import com.hexagonkt.http.server.Call
@@ -32,6 +32,17 @@ fun main() {
             val task = taskRepository.getTaskById(pathParameters["id"].toInt())
             if (task != null) {
                 ok(task, Json)
+            } else {
+                send(404, "Task not found")
+            }
+        }
+        patch("/task/{id}") {
+            val id = pathParameters["id"].toInt()
+            val existingTask = taskRepository.getTaskById(id)
+            if (existingTask != null) {
+                val taskFromRequest = Json.parse(request.body.toStream(), Task::class)
+                val updatedTask = taskRepository.updateTask(id, taskFromRequest)
+                ok(updatedTask!!, Json)
             } else {
                 send(404, "Task not found")
             }

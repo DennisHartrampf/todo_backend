@@ -1,4 +1,4 @@
-package com.hexagonkt.todokt.backend
+package de.hartrampf.todobackend
 
 interface TasksRepository {
     fun getAllTasks(): List<Task>
@@ -6,4 +6,5 @@ interface TasksRepository {
     fun removeAllTasks()
     fun getTaskById(id: Int): Task?
     fun removeTaskById(id: Int): Task?
+    fun updateTask(idOfTaskToBeUpdated: Int, taskWithChanges: Task): Task?
 }
