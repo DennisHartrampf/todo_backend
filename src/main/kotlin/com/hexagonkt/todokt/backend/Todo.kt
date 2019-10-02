@@ -9,15 +9,25 @@ import com.hexagonkt.serialization.Json
 fun main() {
     val taskRepository: TasksRepository = TasksInMemoryRepository()
     val server = Server(JettyServletAdapter()) {
-        before {
+        before("/*") {
             allowCors()
         }
 
-        options { }
+        options("/*") { }
 
         get {
             ok(taskRepository.getAllTasks(), Json)
         }
+        post {
+            val task = Json.parse(request.body.toStream(), Task::class)
+            taskRepository.addTask(task)
+            ok(task, Json)
+        }
+        delete {
+            taskRepository.removeAllTasks()
+            ok()
+        }
+        
         get("/task/{id}") {
             val task = taskRepository.getTaskById(pathParameters["id"].toInt())
             if (task != null) {
@@ -26,11 +36,6 @@ fun main() {
                 send(404, "Task not found")
             }
         }
-        post {
-            val task = Json.parse(request.body.toStream(), Task::class)
-            taskRepository.addTask(task)
-            ok(task, Json)
-        }
         delete("/task/{id}") {
             val task = taskRepository.removeTaskById(pathParameters["id"].toInt())
             if (task != null) {
@@ -38,10 +43,6 @@ fun main() {
             } else {
                 send(404, "Task not found")
             }
-        }
-        delete {
-            taskRepository.removeAllTasks()
-            ok()
         }
     }
 
